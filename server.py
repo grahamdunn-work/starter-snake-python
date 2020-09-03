@@ -47,7 +47,7 @@ class Battlesnake(object):
         elif dy == -1:
             return 'down'
         elif dy == 1:
-        return 'up'
+            return 'up'
 
     def distance(self, p, q):
         print(f'Distance between {p} and {q}')
