@@ -21,38 +21,39 @@ class Battlesnake(object):
     BUFFER = 3 # minimum safe distance
     
     def init(self, data):
-      print(f"Constructing {data['board']['height']} by {data['board']['width']}")
-      grid = [[0 for col in range(data['board']['height'])] for row in range(data['board']['width'])]
-      print(f'{grid}')
-      for snake in data['board']['snakes']:
-       print(f"With snek ID: {snake['id']}")
-       for coord in snake['body']:
-            grid[coord['x']][coord['y']] = Objects.SNAKE
+        print(f"Starting turn {data['turn']")
+        print(f"Constructing {data['board']['height']} by {data['board']['width']}")
+        grid = [[0 for col in range(data['board']['height'])] for row in range(data['board']['width'])]
+        # print(f'{grid}')
+        for snake in data['board']['snakes']:
+        print(f"With snek ID: {snake['id']}")
+        for coord in snake['body']:
+                grid[coord['x']][coord['y']] = Objects.SNAKE
 
-      for f in data['board']['food']:
-        grid[f['x']][f['y']] = Objects.FOOD
+        for f in data['board']['food']:
+            grid[f['x']][f['y']] = Objects.FOOD
 
-      return data['you'], grid
+        return data['you'], grid
     
     def direction(self, from_cell, to_cell):
-      print(f'Moving from {from_cell} to {to_cell}')
-      dx = to_cell[0] - from_cell[0]
-      dy = to_cell[1] - from_cell[1]
+        print(f'Moving from {from_cell} to {to_cell}')
+        dx = to_cell[0] - from_cell[0]
+        dy = to_cell[1] - from_cell[1]
 
-      if dx == 1:
-        return 'right'
-      elif dx == -1:
-        return 'left'
-      elif dy == -1:
-        return 'down'
-      elif dy == 1:
+        if dx == 1:
+            return 'right'
+        elif dx == -1:
+            return 'left'
+        elif dy == -1:
+            return 'down'
+        elif dy == 1:
         return 'up'
 
     def distance(self, p, q):
-      print(f'Distance between {p} and {q}')
-      dx = abs(p['x'] - q['x'])
-      dy = abs(p['y'] - q['y'])
-      return dx + dy;
+        print(f'Distance between {p} and {q}')
+        dx = abs(p['x'] - q['x'])
+        dy = abs(p['y'] - q['y'])
+        return dx + dy;
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
