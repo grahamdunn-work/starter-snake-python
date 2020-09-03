@@ -165,7 +165,7 @@ class Battlesnake(object):
           print("no path to tail from food")
 
         if not path:
-            path = a_star(my_snake_head, my_snake['body'][-1], grid, my_snake_coords)
+            path = a_star(my_snake_head, my_snake_coords[-1], grid, my_snake_coords)
 
         despair = not (path and len(path) > 1)
 
