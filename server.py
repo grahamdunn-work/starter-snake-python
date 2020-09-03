@@ -94,7 +94,7 @@ class Battlesnake(object):
         for enemy in data['board']['snakes']:
           if (enemy['id'] == my_snake['id']):
               continue
-          if self.distance(my_snake['head'], enemy['head']) > BUFFER:
+          if self.distance(my_snake['head'], enemy['head']) > self.BUFFER:
               continue
           if (len(enemy['length']) > len(my_snake['length'])-1):
             #dodge
