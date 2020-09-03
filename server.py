@@ -26,8 +26,8 @@ class Battlesnake(object):
         grid = [[0 for col in range(data['board']['height'])] for row in range(data['board']['width'])]
         # print(f'{grid}')
         for snake in data['board']['snakes']:
-        print(f"With snek ID: {snake['id']}")
-        for coord in snake['body']:
+            print(f"With snek ID: {snake['id']}")
+            for coord in snake['body']:
                 grid[coord['x']][coord['y']] = Objects.SNAKE
 
         for f in data['board']['food']:
