@@ -130,7 +130,7 @@ class Battlesnake(object):
           for enemy in data['board']['snakes']:
               if enemy['id'] == my_snake['id']:
                   continue
-              if path_length > self.distance(enemy['body'][0], food):
+              if path_length > self.distance(enemy['body'][0], {'x': food[0], 'y': food[1]):
                   dead = True
           if dead:
               continue
