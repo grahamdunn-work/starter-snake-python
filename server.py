@@ -96,7 +96,7 @@ class Battlesnake(object):
               continue
           if self.distance(my_snake['head'], enemy['head']) > self.BUFFER:
               continue
-          if (len(enemy['length']) > len(my_snake['length'])-1):
+          if (enemy['length'] > my_snake['length']-1):
             #dodge
             if enemy['coords'][0][1] < data['board']['height']-1:
                 grid[enemy['coords'][0][0]][enemy['coords'][0][1]+1] = Objects.SAFE
@@ -157,7 +157,7 @@ class Battlesnake(object):
           printg(grid, 'orig')
           printg(new_grid, 'new')
 
-          print(f"Snake tail: {my_snake['body'][-1]}")
+          print(f"Foodtotail: {food},{new_my_snake_coords[-1]},{new_grid}, {new_my_snake_coords}")
           foodtotail = a_star(food,new_my_snake_coords[-1],new_grid, new_my_snake_coords)
           if foodtotail:
               path = tentative_path
