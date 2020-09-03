@@ -117,6 +117,7 @@ class Battlesnake(object):
         for food in [[coord['x'], coord['y']] for coord in foods]:
           print(f'food: {food}')
           tentative_path = a_star(my_snake_head, food, grid, my_snake_coords)
+          print(f'Tentative Path: {tentative_path}')
           if not tentative_path:
               print("no path to food")
               continue
@@ -155,7 +156,7 @@ class Battlesnake(object):
           printg(grid, 'orig')
           printg(new_grid, 'new')
 
-          print(f"Snake body: {my_snake['body'][-1]}")
+          print(f"Snake tail: {my_snake['body'][-1]}")
           foodtotail = a_star(food,new_my_snake_coords[-1],new_grid, new_my_snake_coords)
           if foodtotail:
               path = tentative_path
