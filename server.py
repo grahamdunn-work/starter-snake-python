@@ -98,15 +98,15 @@ class Battlesnake(object):
               continue
           if (enemy['length'] > my_snake['length']-1):
             #dodge
-            if enemy['coords'][0][1] < data['board']['height']-1:
-                grid[enemy['coords'][0][0]][enemy['coords'][0][1]+1] = Objects.SAFE
-            if enemy['coords'][0][1] > 0:
-                grid[enemy['coords'][0][0]][enemy['coords'][0][1]-1] = Objects.SAFE
+            if enemy['body'][0]['y'] < data['board']['height']-1:
+                grid[enemy['body'][0]['x']][enemy['body'][0]['x']+1] = Objects.SAFE
+            if enemy['body'][0]['y'] > 0:
+                grid[enemy['body'][0][0]][enemy['body'][0][1]-1] = Objects.SAFE
 
-            if enemy['coords'][0][0] < data['board']['width']-1:
-                grid[enemy['coords'][0][0]+1][enemy['coords'][0][1]] = Objects.SAFE
-            if enemy['coords'][0][0] > 0:
-                grid[enemy['coords'][0][0]-1][enemy['coords'][0][1]] = Objects.SAFE
+            if enemy['body'][0]['x'] < data['board']['width']-1:
+                grid[enemy['body'][0]['x']+1][enemy['body'][0]['y']] = Objects.SAFE
+            if enemy['body'][0][0] > 0:
+                grid[enemy['body'][0]['x']-1][enemy['body'][0]['y']] = Objects.SAFE
 
 
         my_snake_head = [my_snake['head']['x'], my_snake['head']['y']]
