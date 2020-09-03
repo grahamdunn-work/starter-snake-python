@@ -1,8 +1,8 @@
 def printg(grid, name):
-    print '%s: [' % name
+    print('%s: [' % name)
     for row in grid:
-        print row
-    print ']'
+        print(row)
+    print(']')
 
 def dist(p, q):
     dx = abs(p[0] - q[0])
