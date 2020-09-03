@@ -21,7 +21,7 @@ class Battlesnake(object):
     BUFFER = 3 # minimum safe distance
     
     def init(self, data):
-        print(f"Starting turn {data['turn']"})
+        print(f"Starting turn {data['turn']}")
         print(f"Constructing {data['board']['height']} by {data['board']['width']}")
         grid = [[0 for col in range(data['board']['height'])] for row in range(data['board']['width'])]
         # print(f'{grid}')
