@@ -119,6 +119,7 @@ class Battlesnake(object):
           print(f'food: {food}')
           tentative_path = a_star(my_snake_head, food, grid, my_snake_coords)
           print(f'Tentative Path: {tentative_path}')
+          print(f'My snake: {my_snake_coords}')
           if not tentative_path:
               print("no path to food")
               continue
