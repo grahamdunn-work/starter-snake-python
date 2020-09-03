@@ -49,13 +49,13 @@ def a_star(start, goal, grid, tail):
     came_from = {} #empty map
 
     g_score = [[10000 for x in range(len(grid[y]))] for y in range(len(grid))]
-    g_score[start[0]][start[1]] = 0
+    g_score[start['x']][start['y']] = 0
 
     f_score = [[10000 for x in range(len(grid[y]))] for y in range(len(grid))]
-    f_score[start[0]][start[1]] = dist(start,goal)
+    f_score[start['x']][start['y']] = dist(start,goal)
 
     while(len(open_set) > 0):
-        current = min(open_set, key=lambda p: f_score[p[0]][p[1]])
+        current = min(open_set, key=lambda p: f_score[p['x']][p['y']])
 
         if (current == goal):
             return reconstruct_path(came_from, goal)
@@ -63,18 +63,18 @@ def a_star(start, goal, grid, tail):
         open_set.remove(current)
         closed_set.append(current)
 
-        for neighbour in neighbours(current, grid, g_score[current[0]][current[1]], tail,[1,2,5]):
+        for neighbour in neighbours(current, grid, g_score[current['x']][current['y']], tail,[1,2,5]):
             if neighbour in closed_set:
                 continue
-            tentative_g_score = g_score[current[0]][current[1]] + dist(current,neighbour)
+            tentative_g_score = g_score[current['x']][current['y']] + dist(current,neighbour)
             if neighbour not in open_set:
                 open_set.append(neighbour)
-            elif tentative_g_score >= g_score[neighbour[0]][neighbour[1]]:
+            elif tentative_g_score >= g_score[neighbour['x']][neighbour['y']]:
                 continue
 
             came_from[neighbour] = current
-            g_score[neighbour[0]][neighbour[1]] = tentative_g_score
-            f_score[neighbour[0]][neighbour[1]] = tentative_g_score + dist(neighbour,goal)
+            g_score[neighbour['x']][neighbour['y']] = tentative_g_score
+            f_score[neighbour['x']][neighbour['y']] = tentative_g_score + dist(neighbour,goal)
 
     return None
 
